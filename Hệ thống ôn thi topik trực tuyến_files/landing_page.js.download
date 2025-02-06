@@ -1,0 +1,145 @@
+$(document).ready(function () {
+    $(document).on("scroll", onScroll);
+
+    //smoothscroll
+    $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+
+        $('a').each(function () {
+            $(this).removeClass('active');
+        })
+        $(this).addClass('active');
+
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset()
+        }, 500, 'swing', function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
+    });
+
+    // Nav dropdown menu
+
+
+    $(".page-scroll").hover(function () {
+        $(this).css("color", "#03a9f4");
+    }, function () {
+        $(this).css("color", "#747E88");
+    })
+
+    function onScroll(event) {
+        var scrollPos = $(document).scrollTop();
+        $('#navbarOne a').each(function () {
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('#navbarOne ul li a').removeClass("active");
+                currLink.addClass("active");
+            } else {
+                currLink.removeClass("active");
+            }
+        });
+    }
+
+
+    var s = new scrollNav();
+    s.init();
+
+    //======== tiny slider for work
+
+
+//======== tiny slider for team
+    tns({
+        container: '.team_active',
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayText: [' ', ' '],
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-chevron-left prev"></i>',
+            '<i class="lni lni-chevron-right next"></i>'
+        ],
+        items: 5,
+
+        responsive: {
+            0: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            1050: {
+                items: 3,
+            },
+        }
+    });
+    tns({
+        container: '.team_data_active',
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayText: [' ', ' '],
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-chevron-left prev"></i>',
+            '<i class="lni lni-chevron-right next"></i>'
+        ],
+        items: 5,
+
+        responsive: {
+            0: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            1050: {
+                items: 3,
+            },
+        }
+    });
+    tns({
+        container: '.team_collaborators_active',
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayText: [' ', ' '],
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-chevron-left prev"></i>',
+            '<i class="lni lni-chevron-right next"></i>'
+        ],
+        items: 5,
+
+        responsive: {
+            0: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            1050: {
+                items: 3,
+            },
+        }
+    });
+});
+
+
+
+
+
+
+
+

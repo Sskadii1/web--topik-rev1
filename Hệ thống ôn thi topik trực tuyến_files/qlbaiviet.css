@@ -1,0 +1,60 @@
+
+@media only screen and (max-width: 768px) {
+    .menu{
+        overflow-y: scroll;
+        height: 100%;
+    }
+}
+@media only screen and (min-width: 769px) {
+    .cl-ul-item1:hover .cl-dropdown-menu{
+        display: block
+    }
+    .cl-ul-item2:hover .cl-dropdown-menu2{
+        display: block
+    }
+    .cl-ul-item:hover:before{
+        width: 100%;
+    }
+    .cl-dropdown-menu:before,.cl-dropdown-menu2:before{
+        content: "";
+        display: block;
+        width: 12px;
+        height: 60px;
+        position: absolute;
+        top: -5px;
+        left: -12px;
+        background: url(https://clockify.me/arrow-shadowed.df34a64e786b1fdaad7b.svg) 0 0 no-repeat;
+    }
+    .cl-dropdown-menu:after,.cl-dropdown-menu2:after{
+        content: "";
+        position: absolute;
+        left: -16px;
+        top: 0;
+        height: 100%;
+        width: 25px;
+        opacity: .2;
+    }
+
+    
+    .cl-ul-item:before{
+        position: absolute;
+        content: "";
+        left: 0;
+        width: 0;
+        height: 50px;
+        background: #e4eaee;
+        transition: width .2s ease;
+        z-index: 1;
+    }
+}
+.cl-dropdown-toggle::after{
+    border: none;
+    content: "";
+    width: 10px;
+    height: 6px;
+    background: url(https://clockify.me/chevron-down.001f15f3ee339f9c232e.svg);
+    transform: rotate(-90deg);
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+}

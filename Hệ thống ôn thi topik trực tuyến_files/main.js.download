@@ -1,0 +1,38 @@
+$(document).ready(function(){
+    // Nav dropdown menu
+    $(".nav_btn").click(function(){
+        $(".nav_dropdown").toggle(300);
+    })
+
+     //info dropdown
+     //Click vào một element khác thì element đang hiển thị sẽ thu vào(ẩn đi)
+     $('#info button').on("click", function(e){
+        e.preventDefault();
+        $(this).parent('#info').siblings().children('#info_dropdown').slideUp();
+        $(this).siblings('#info_dropdown').slideToggle(300);
+    });
+
+    //menu fixed
+    window.onscroll = function () { myFunction() };
+
+    var header = document.getElementById("myHeader");
+    
+    function myFunction() {
+        if (window.pageYOffset > header.offsetTop) {
+            header.classList.add("stickyMenu");
+        } else {
+            header.classList.remove("stickyMenu");
+        }
+    }
+    //footer
+	$('.like').click(function(){
+		if($('.like').hasClass('bg-[#707070]')){
+			$('.like').removeClass('bg-[#707070]');
+			$('.like').addClass('bg-[#03a9f4]');
+		}
+		else{
+			$('.like').addClass('bg-[#707070]');
+			$('.like').removeClass('bg-[#03a9f4]');
+		}
+	})
+})
